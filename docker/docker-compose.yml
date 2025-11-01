@@ -1,55 +1,64 @@
-version: '3.8'
-
 services:
   backend:
     build:
-      context: .
-      dockerfile: ./docker/Dockerfile.backend
+      context: ..
+      dockerfile: docker/Dockerfile.backend
     ports:
       - "8000:8000"
     volumes:
-      - ./data/screenshots:/app/data/screenshots
-      - ./data/logs:/app/data/logs
+      - ../data/screenshots:/app/data/screenshots
+      - ../data/logs:/app/data/logs
+      - ../.env:/app/.env:ro
+      - ../backend:/app/backend
+      - ../agents:/app/agents
+      - ../graph:/app/graph
+      - ../utils:/app/utils
+    env_file:
+      - ../.env
     environment:
       - ENV_FILE=/app/.env
-    env_file:
-      - ./.env
     networks:
       - agent-b-network
+    restart: unless-stopped
 
   frontend:
     build:
-      context: .
-      dockerfile: ./docker/Dockerfile.frontend
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
+      - ../frontend:/app
       - /app/node_modules
+      - ../.env:/app/.env.local:ro
+    env_file:
+      - ../.env
     environment:
       - NODE_ENV=development
-    env_file:
-      - ./.env
     depends_on:
       - backend
     networks:
       - agent-b-network
+    restart: unless-stopped
 
   mcp:
     build:
-      context: .
-      dockerfile: ./docker/Dockerfile.mcp
+      context: ..
+      dockerfile: docker/Dockerfile.mcp
     ports:
       - "8001:8001"
     volumes:
-      - ./mcp:/app
-      - ./data:/app/data
+      - ../mcp:/app/mcp
+      - ../data:/app/data
+      - ../.env:/app/.env:ro
+    env_file:
+      - ../.env
     environment:
       - ENV_FILE=/app/.env
-    env_file:
-      - ./.env
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
     networks:
       - agent-b-network
+    restart: unless-stopped
 
 networks:
   agent-b-network:
