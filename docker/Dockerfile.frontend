@@ -1,19 +1,12 @@
-# Dockerfile for Next.js frontend
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY frontend/package*.json /app/
-
-# Install dependencies
+COPY frontend/package*.json ./
 RUN npm install
 
-# Copy frontend code
-COPY frontend/ /app/
+COPY frontend/ ./
 
-# Expose port
 EXPOSE 3000
 
-# Run the application
 CMD ["npm", "run", "dev"]
