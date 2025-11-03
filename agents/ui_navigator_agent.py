@@ -208,18 +208,19 @@ You are an expert UI navigation agent analyzing a live web application. Your goa
 
 **IMPORTANT - Text Generation for Type Actions**:
 - If the user's query specifies exact text to type (e.g., "create a task with name 'Meeting'"), use that exact text
-- If the user's query does NOT specify text (e.g., "how do I create a task?"), ALWAYS generate dummy/test text for demonstration:
-  - For task/project names: "Test Task", "Test Project", "Sample Task", etc.
-  - For descriptions: "This is a test description for demonstration purposes"
-  - For names: "Test Name", "Sample Name"
-  - For any other field: Use context-appropriate test text (e.g., "test@example.com" for emails)
-- The goal is to guide the user through the UI steps with screenshots, NOT to actually create real data
-- ALWAYS include "text" field for type actions, even if it's just dummy data
+- If the user's query does NOT specify text (e.g., "how do I create a task?"), ALWAYS generate descriptive placeholder text that guides the user:
+  - For task/project names: "Your task name", "Task name", "Project name", etc.
+  - For descriptions: "Description", "Task description", "Your description"
+  - For names: "Your name", "Name", "Your full name"
+  - For emails: "your.email@example.com" (descriptive placeholder)
+  - For any other field: Use descriptive placeholder text that indicates what should be entered (e.g., "Your title", "Your message", "Your comment")
+- The goal is to guide the user through the UI steps with screenshots showing what to type, using clear placeholder text
+- ALWAYS include "text" field for type actions, using descriptive placeholders that help users understand what to enter
 
 **Critical Rules**:
 - ONLY use selectors for elements that EXIST in the HTML provided
 - NEVER include login, sign-in, or authentication steps (user is already authenticated)
-- Generate realistic sample data for form fields (e.g., "Test Project" for project name)
+- Generate descriptive placeholder text for form fields (e.g., "Project name" or "Your task name" to guide users)
 - Include wait steps after clicks that might trigger modals or loading states
 - If you're not sure an element exists, DON'T include that step
 - Return ONLY the JSON array, no explanation text
@@ -376,34 +377,43 @@ Generate the navigation steps now:
             if not enhanced_step["selector"] and enhanced_step["action_type"] != "wait":
                 continue
             
-            # Auto-generate dummy text for type actions if missing
+            # Auto-generate descriptive placeholder text for type actions if missing
             if enhanced_step["action_type"] == "type" and not enhanced_step.get("text", "").strip():
-                # Generate context-appropriate dummy text based on selector and description
+                # Generate descriptive placeholder text that guides the user
                 selector_lower = enhanced_step["selector"].lower()
                 desc_lower = enhanced_step["description"].lower()
                 
-                # Determine field type from selector/description
+                # Determine field type from selector/description and generate helpful placeholder
                 if any(word in selector_lower or word in desc_lower for word in ["name", "title"]):
-                    enhanced_step["text"] = "Test Name"
+                    if "task" in selector_lower or "task" in desc_lower:
+                        enhanced_step["text"] = "Your task name"
+                    elif "project" in selector_lower or "project" in desc_lower:
+                        enhanced_step["text"] = "Project name"
+                    else:
+                        enhanced_step["text"] = "Your name"
                 elif "description" in selector_lower or "description" in desc_lower:
-                    enhanced_step["text"] = "This is a test description for demonstration purposes"
+                    enhanced_step["text"] = "Description"
                 elif any(word in selector_lower or word in desc_lower for word in ["task"]):
-                    enhanced_step["text"] = "Test Task"
+                    enhanced_step["text"] = "Your task name"
                 elif any(word in selector_lower or word in desc_lower for word in ["project"]):
-                    enhanced_step["text"] = "Test Project"
+                    enhanced_step["text"] = "Project name"
                 elif any(word in selector_lower or word in desc_lower for word in ["goal"]):
-                    enhanced_step["text"] = "Test Goal"
+                    enhanced_step["text"] = "Your goal"
                 elif any(word in selector_lower or word in desc_lower for word in ["email", "e-mail"]):
-                    enhanced_step["text"] = "test@example.com"
+                    enhanced_step["text"] = "your.email@example.com"
                 elif any(word in selector_lower or word in desc_lower for word in ["url", "link", "website"]):
                     enhanced_step["text"] = "https://example.com"
                 elif any(word in selector_lower or word in desc_lower for word in ["comment", "note", "message"]):
-                    enhanced_step["text"] = "Test comment for demonstration"
+                    enhanced_step["text"] = "Your comment"
                 else:
-                    # Generic fallback
-                    enhanced_step["text"] = "Test Input"
+                    # Generic descriptive placeholder - try to extract from placeholder attribute if available
+                    placeholder_match = re.search(r'placeholder[=:]["\']([^"\']+)["\']', selector_lower)
+                    if placeholder_match:
+                        enhanced_step["text"] = placeholder_match.group(1)
+                    else:
+                        enhanced_step["text"] = "Your text"
                 
-                logger.debug(f"Generated dummy text '{enhanced_step['text']}' for type action: {enhanced_step['selector']}")
+                logger.debug(f"Generated placeholder text '{enhanced_step['text']}' for type action: {enhanced_step['selector']}")
             
             validated_steps.append(enhanced_step)
         
