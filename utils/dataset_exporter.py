@@ -281,7 +281,7 @@ This submission contains captured UI states for {len(tasks)} tasks across multip
 ## Technical Implementation
 
 ### Architecture
-- **Browser Automation**: Playwright for robust cross-browser support
+- **Browser Automation**: Playwright for cross-browser support
 - **AI Agents**: CrewAI-based modular agents for intelligent navigation
 - **State Capture**: Enhanced screenshot capture for modals and dynamic content
 - **Session Persistence**: Browser context saving for authenticated sessions
@@ -290,7 +290,7 @@ This submission contains captured UI states for {len(tasks)} tasks across multip
 1. **Modal Detection**: Automatically detects and captures modal/dialog states
 2. **Form State Capture**: Captures forms at different completion stages
 3. **Hover States**: Captures dropdown menus and tooltips
-4. **Error Recovery**: Robust error handling and retry logic
+4. **Error Recovery**: Error handling and retry logic
 5. **OAuth Support**: Handles multiple authentication methods
 
 ## Captured Tasks

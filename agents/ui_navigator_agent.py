@@ -213,8 +213,8 @@ You are an expert UI navigation agent analyzing a live web application. Your goa
 - **JavaScript-heavy sites**: Include wait steps after clicks/actions on dynamic sites (2-3 seconds)
 - NEVER include login/authentication steps even if login buttons are visible in HTML
 
-**Page HTML** (analyze this carefully - first 15000 characters):
-{page_html[:15000]}
+**Page HTML** (analyze this carefully - increased limit for complex DOM trees):
+{page_html[:50000]}
 
 **Output Format**: Generate a JSON array with steps. Each step object:
 {{

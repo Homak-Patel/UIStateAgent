@@ -1,0 +1,600 @@
+{
+  "task_query": "how do i create a new task with name \"Homak-Test2\" in asana ?",
+  "app_name": "notion",
+  "app_url": "https://www.notion.so",
+  "task_name": "how do i create a new task with name Homak-Test2 in asana",
+  "completed": true,
+  "error": null,
+  "total_steps": 12,
+  "steps_completed": 12,
+  "screenshots": [
+    "./data/screenshots/notion/how do i create a new task with name Homak-Test2 in asana/step_000.png",
+    "./data/screenshots/notion/how do i create a new task with name Homak-Test2 in asana/step_010.png"
+  ],
+  "step_descriptions": [
+    "Start: Open the application",
+    "Navigate to Asana application (currently on Notion, need to go to Asana to cr...",
+    "Wait a moment",
+    "Click on 'Create'",
+    "Wait for the page to load",
+    "Wait for the menu to appear",
+    "Click on 'Task'",
+    "Wait for the page to load",
+    "Wait for the element to appear",
+    "Enter text",
+    "Click on 'Create task'",
+    "Wait for the page to load",
+    "Wait a moment",
+    "Wait a moment",
+    "Wait a moment"
+  ],
+  "execution_time": 189.08571791648865,
+  "detected_modals": 16,
+  "form_interactions": 0,
+  "ui_states_captured": 16,
+  "execution_log": [
+    {
+      "timestamp": 1762409478.9848142,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "initial",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409480.481767,
+      "step": 0,
+      "event": "screenshot_captured",
+      "details": {
+        "path": "./data/screenshots/notion/how do i create a new task with name Homak-Test2 in asana/step_000.png",
+        "description": "Start: Open the application",
+        "action_type": null,
+        "action_success": true,
+        "step": 0,
+        "step_index": 0
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409508.098731,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_navigate_Navigate to Asana application (currently on Notion, need to go to Asana to create a task)",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409508.098748,
+      "step": 0,
+      "event": "step_executed_navigate",
+      "details": {
+        "selector": "https://app.asana.com",
+        "description": "Navigate to Asana application (currently on Notion, need to go to Asana to create a task)",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409509.949795,
+      "step": 1,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 1,
+        "description": "Navigate to Asana application (currently on Notion, need to go to Asana to cr...",
+        "action_type": "navigate"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409514.356908,
+      "step": 1,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for Asana application to load completely",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409514.3569238,
+      "step": 1,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "body",
+        "description": "Wait for Asana application to load completely",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409516.161702,
+      "step": 2,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 2,
+        "description": "Wait a moment",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409517.08254,
+      "step": 2,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "pre_click_Click the 'Create' or Quick Add button in Asana to open task creation menu",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409524.330682,
+      "step": 2,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_click_Click the 'Create' or Quick Add button in Asana to open task creation menu",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409524.971671,
+      "step": 2,
+      "event": "step_executed_click",
+      "details": {
+        "selector": "button[aria-label='Create'], button:has-text('Create'), [data-testid='create-button'], .QuickAddButton, button[class*='QuickAddButton']",
+        "description": "Click the 'Create' or Quick Add button in Asana to open task creation menu",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409526.791171,
+      "step": 3,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 3,
+        "description": "Click on 'Create'",
+        "action_type": "click"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409547.494426,
+      "step": 3,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for dynamic content to load",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409547.494442,
+      "step": 3,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "",
+        "description": "Wait for dynamic content to load",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409549.2813902,
+      "step": 4,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 4,
+        "description": "Wait for the page to load",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409552.749116,
+      "step": 4,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for create menu/dropdown to appear",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409552.749131,
+      "step": 4,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "body",
+        "description": "Wait for create menu/dropdown to appear",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409554.554975,
+      "step": 5,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 5,
+        "description": "Wait for the menu to appear",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409555.5033548,
+      "step": 5,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "pre_click_Click 'Task' option from the create menu to open task creation form",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409562.91624,
+      "step": 5,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_click_Click 'Task' option from the create menu to open task creation form",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409563.5578592,
+      "step": 5,
+      "event": "step_executed_click",
+      "details": {
+        "selector": "[role='menuitem']:has-text('Task'), button:has-text('Task'), [data-testid='quick-add-task-button']",
+        "description": "Click 'Task' option from the create menu to open task creation form",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409565.4155679,
+      "step": 6,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 6,
+        "description": "Click on 'Task'",
+        "action_type": "click"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409584.030581,
+      "step": 6,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for dynamic content to load",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409584.030596,
+      "step": 6,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "",
+        "description": "Wait for dynamic content to load",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409585.809878,
+      "step": 7,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 7,
+        "description": "Wait for the page to load",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409589.2723432,
+      "step": 7,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for task creation form/modal to appear",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409589.272358,
+      "step": 7,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "body",
+        "description": "Wait for task creation form/modal to appear",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409591.064832,
+      "step": 8,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 8,
+        "description": "Wait for the element to appear",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409595.783917,
+      "step": 8,
+      "event": "step_failed_type",
+      "details": {
+        "selector": "input[placeholder*='Task name'], input[placeholder*='task name'], textarea[placeholder*='Task name'], [data-testid='task-name-input'], input[name='name']",
+        "description": "Type the task name 'Homak-Test2' in the task name input field",
+        "error": "Type failed for input[placeholder*='Task name'], input[placeholder*='task name'], textarea[placeholder*='Task name'], [data-testid='task-name-input'], input[name='name']: All strategies exhausted after 1 attempts",
+        "success": false
+      },
+      "url": "",
+      "success": false
+    },
+    {
+      "timestamp": 1762409595.7840278,
+      "step": 8,
+      "event": "navigation_error",
+      "details": {
+        "error": "Type action failed and is critical: Type failed for input[placeholder*='Task name'], input[placeholder*='task name'], textarea[placeholder*='Task name'], [data-testid='task-name-input'], input[name='name']: All strategies exhausted after 1 attempts",
+        "step": 8
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409597.5746508,
+      "step": 9,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 9,
+        "description": "Enter text",
+        "action_type": "type"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409613.228469,
+      "step": 9,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "pre_click_Click the 'Create task' or 'Create' button to save the new task",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409621.7478359,
+      "step": 9,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_click_Click the 'Create task' or 'Create' button to save the new task",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409622.3850071,
+      "step": 9,
+      "event": "step_executed_click",
+      "details": {
+        "selector": "button[aria-label*='Create task'], button:has-text('Create task'), button:has-text('Create'), [data-testid='create-task-button']",
+        "description": "Click the 'Create task' or 'Create' button to save the new task",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409625.166204,
+      "step": 10,
+      "event": "screenshot_captured",
+      "details": {
+        "path": "./data/screenshots/notion/how do i create a new task with name Homak-Test2 in asana/step_010.png",
+        "description": "Click on 'Create task'",
+        "action_type": "click",
+        "action_success": true,
+        "step": 10,
+        "step_index": 10
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409628.653122,
+      "step": 10,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for dynamic content to load",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409628.653141,
+      "step": 10,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "",
+        "description": "Wait for dynamic content to load",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409630.434569,
+      "step": 11,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 11,
+        "description": "Wait for the page to load",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409633.933114,
+      "step": 11,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for task to be created and saved",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409633.93313,
+      "step": 11,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "body",
+        "description": "Wait for task to be created and saved",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409635.714217,
+      "step": 12,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 12,
+        "description": "Wait a moment",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409649.750162,
+      "step": 12,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 12,
+        "description": "Wait a moment",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762409666.605856,
+      "step": 12,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "final",
+        "has_modals": true,
+        "has_forms": true,
+        "url": "https://www.notion.com/"
+      },
+      "url": "https://www.notion.com/",
+      "success": true
+    },
+    {
+      "timestamp": 1762409668.070532,
+      "step": 12,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 12,
+        "description": "Wait a moment",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    }
+  ]
+}

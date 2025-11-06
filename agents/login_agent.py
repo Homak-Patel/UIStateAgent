@@ -43,7 +43,7 @@ class LoginAgent:
     async def check_authentication_required(self, app_url: str) -> Dict[str, Any]:
         """
         Check if authentication is required for the given application.
-        Returns comprehensive authentication status and requirements.
+        Returns authentication status and requirements.
         """
         logger.log_agent_start("LoginAgent", task="Check authentication")
         

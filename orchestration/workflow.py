@@ -25,7 +25,7 @@ class WorkflowState:
         self.screenshots: List[str] = []
         self.screenshot_to_step_map: Dict[str, int] = {}  # Map screenshot path to step index
         self.step_descriptions: List[str] = []
-        self.ui_states: List[Dict[str, Any]] = []  # Comprehensive UI state captures
+        self.ui_states: List[Dict[str, Any]] = []  # UI state captures
         self.state_valid: bool = True
         self.completed: bool = False
         self.error: Optional[str] = None
@@ -73,7 +73,7 @@ class AgentWorkflow:
         logger.debug(f"Execution log: {event} - {details}")
     
     async def _capture_ui_state(self, state: WorkflowState, context: str):
-        """Capture comprehensive UI state including non-URL states"""
+        """Capture UI state including non-URL states"""
         try:
             ui_state = await self.browser.capture_full_workflow_state()
             ui_state["context"] = context
@@ -819,7 +819,7 @@ class AgentWorkflow:
         app_name: str,
         task_name: str
     ) -> Dict[str, Any]:
-        """Execute enhanced workflow with comprehensive state capture"""
+        """Execute workflow and capture UI states"""
         logger.log_agent_start("AgentWorkflow", task=task_query)
         
         state = WorkflowState()
@@ -904,7 +904,7 @@ class AgentWorkflow:
                 await self._capture_ui_state(state, "final")
                 await self._screenshot_step_enhanced(state)
             
-            # Save comprehensive metadata
+            # Save metadata
             await self._save_workflow_metadata(state)
             
             # Filter out duplicate consecutive step descriptions

@@ -1,0 +1,382 @@
+{
+  "task_query": "can you add new task in the task tracker with name \"Test task\"",
+  "app_name": "notion",
+  "app_url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9",
+  "task_name": "can you add new task in the task tracker with name Test task",
+  "completed": true,
+  "error": null,
+  "total_steps": 6,
+  "steps_completed": 6,
+  "screenshots": [
+    "./data/screenshots/notion/can you add new task in the task tracker with name Test task/step_000.png",
+    "./data/screenshots/notion/can you add new task in the task tracker with name Test task/step_001.png",
+    "./data/screenshots/notion/can you add new task in the task tracker with name Test task/step_004.png"
+  ],
+  "step_descriptions": [
+    "Start: Open the application",
+    "Click on 'New' (A popup or menu appeared)",
+    "Wait for the page to load (A popup or menu appeared)",
+    "Click on on the task name/title field to focus it (A popup or menu appeared)",
+    "Enter text (A popup or menu appeared) (Entered information)",
+    "Click on outside the editor to ensure the task is saved and  (A popup or menu appeared) (Entered information)",
+    "Wait for the page to load (A popup or menu appeared) (Entered information)",
+    "Wait for the page to load (A popup or menu appeared) (Entered information)",
+    "Wait for the page to load (A popup or menu appeared) (Entered information)"
+  ],
+  "execution_time": 97.41422510147095,
+  "detected_modals": 9,
+  "form_interactions": 2,
+  "ui_states_captured": 10,
+  "execution_log": [
+    {
+      "timestamp": 1762397007.960829,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "initial",
+        "has_modals": false,
+        "has_forms": false,
+        "url": "https://www.notion.so/appleauthcallback?state=eyJjYWxsYmFja1R5cGUiOiJyZWRpcmVjdCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmFwcGxlX2F1dGhfZmxvdzpiaGJsT3ZzSlM5NExTRzRQTUZxVV83RW9VT3AtYUo4YXpGQ0p5ZmpmTGhTMktZdTcxaTUtTUxXZ2JiLWFONDNEcnp2b1NpdXlPQXAzWmR0N1o3VmtEREJnZHVvRWpVUER3UEx2aFJUWGYwdTg1dlFYLWlNZTlvSVN3UDcwODdXZVU2TUgiLCJlbmNyeXB0ZWROb25jZSI6InYwMjphcHBsZV9hdXRoX2Zsb3c6ckhMekhvQl9ReVhTVU1BRzByRkpWcjRBQjlGMzBjNWkwUWdkaGVxRmFXNXlBeVpEaVFVckhDVHF5dGVxdFUyZ0d6a0dSM3BRMHkwUnpPWVF5enI2Tm03YlN0YVRaRHRwb3dJdVhUZWJFYnpWWnBpeDhfQ0l6NVFpMjBCVzAwUURwbmJSLThtWkNNSUFHY1gyR3k0MCJ9&code=ccef3211c2bf54e06b342ab7f80e27d8a.0.prwyz.CkcZCEG2jav9TSUuh8ECtQ"
+      },
+      "url": "https://www.notion.so/appleauthcallback?state=eyJjYWxsYmFja1R5cGUiOiJyZWRpcmVjdCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmFwcGxlX2F1dGhfZmxvdzpiaGJsT3ZzSlM5NExTRzRQTUZxVV83RW9VT3AtYUo4YXpGQ0p5ZmpmTGhTMktZdTcxaTUtTUxXZ2JiLWFONDNEcnp2b1NpdXlPQXAzWmR0N1o3VmtEREJnZHVvRWpVUER3UEx2aFJUWGYwdTg1dlFYLWlNZTlvSVN3UDcwODdXZVU2TUgiLCJlbmNyeXB0ZWROb25jZSI6InYwMjphcHBsZV9hdXRoX2Zsb3c6ckhMekhvQl9ReVhTVU1BRzByRkpWcjRBQjlGMzBjNWkwUWdkaGVxRmFXNXlBeVpEaVFVckhDVHF5dGVxdFUyZ0d6a0dSM3BRMHkwUnpPWVF5enI2Tm03YlN0YVRaRHRwb3dJdVhUZWJFYnpWWnBpeDhfQ0l6NVFpMjBCVzAwUURwbmJSLThtWkNNSUFHY1gyR3k0MCJ9&code=ccef3211c2bf54e06b342ab7f80e27d8a.0.prwyz.CkcZCEG2jav9TSUuh8ECtQ",
+      "success": true
+    },
+    {
+      "timestamp": 1762397008.61969,
+      "step": 0,
+      "event": "screenshot_captured",
+      "details": {
+        "path": "./data/screenshots/notion/can you add new task in the task tracker with name Test task/step_000.png",
+        "description": "Start: Open the application",
+        "action_type": null,
+        "action_success": true,
+        "step": 0,
+        "step_index": 0
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397030.633376,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "pre_click_Click the 'New' button to create a new task entry in the database",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9",
+      "success": true
+    },
+    {
+      "timestamp": 1762397039.9672372,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_click_Click the 'New' button to create a new task entry in the database",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397040.4853399,
+      "step": 0,
+      "event": "step_executed_click",
+      "details": {
+        "selector": "button[aria-label='New']",
+        "description": "Click the 'New' button to create a new task entry in the database",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397041.764427,
+      "step": 1,
+      "event": "screenshot_captured",
+      "details": {
+        "path": "./data/screenshots/notion/can you add new task in the task tracker with name Test task/step_001.png",
+        "description": "Click on 'New' (A popup or menu appeared)",
+        "action_type": "click",
+        "action_success": true,
+        "step": 1,
+        "step_index": 1
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397044.38901,
+      "step": 1,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for dynamic content to load",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397044.3890188,
+      "step": 1,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "",
+        "description": "Wait for dynamic content to load",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397045.414891,
+      "step": 2,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 2,
+        "description": "Wait for the page to load (A popup or menu appeared)",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397048.206326,
+      "step": 2,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_click_Click on the task name/title field to focus it",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397048.724085,
+      "step": 2,
+      "event": "step_executed_click",
+      "details": {
+        "selector": "[placeholder='Untitled'], [placeholder='Empty'], [data-content-editable-leaf='true']",
+        "description": "Click on the task name/title field to focus it",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397049.7563362,
+      "step": 3,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 3,
+        "description": "Click on on the task name/title field to focus it (A popup or menu appeared)",
+        "action_type": "click"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397068.087614,
+      "step": 3,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_type_Type 'Test task' as the name of the new task",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397071.962384,
+      "step": 3,
+      "event": "step_failed_type",
+      "details": {
+        "selector": "[placeholder='Untitled'], [placeholder='Empty'], [data-content-editable-leaf='true']",
+        "description": "Type 'Test task' as the name of the new task",
+        "error": "Step validation failed",
+        "success": false
+      },
+      "url": "",
+      "success": false
+    },
+    {
+      "timestamp": 1762397071.9625149,
+      "step": 3,
+      "event": "step_failed_type",
+      "details": {
+        "selector": "[placeholder='Untitled'], [placeholder='Empty'], [data-content-editable-leaf='true']",
+        "description": "Type 'Test task' as the name of the new task",
+        "error": "Critical step failed: type on [placeholder='Untitled'], [placeholder='Empty'], [data-content-editable-leaf='true'] - Type 'Test task' as the name of the new task",
+        "success": false
+      },
+      "url": "",
+      "success": false
+    },
+    {
+      "timestamp": 1762397071.9626398,
+      "step": 3,
+      "event": "navigation_error",
+      "details": {
+        "error": "Type action failed and is critical: Critical step failed: type on [placeholder='Untitled'], [placeholder='Empty'], [data-content-editable-leaf='true'] - Type 'Test task' as the name of the new task",
+        "step": 3
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397073.221768,
+      "step": 4,
+      "event": "screenshot_captured",
+      "details": {
+        "path": "./data/screenshots/notion/can you add new task in the task tracker with name Test task/step_004.png",
+        "description": "Enter text (A popup or menu appeared) (Entered information)",
+        "action_type": "type",
+        "action_success": false,
+        "step": 4,
+        "step_index": 4
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397073.404234,
+      "step": 4,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "pre_click_Click outside the editor to ensure the task is saved and close any open modal",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397076.562013,
+      "step": 4,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_click_Click outside the editor to ensure the task is saved and close any open modal",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397077.077235,
+      "step": 4,
+      "event": "step_executed_click",
+      "details": {
+        "selector": "body",
+        "description": "Click outside the editor to ensure the task is saved and close any open modal",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397078.594078,
+      "step": 5,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 5,
+        "description": "Click on outside the editor to ensure the task is saved and  (A popup or menu appeared) (Entered information)",
+        "action_type": "click"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397080.922667,
+      "step": 5,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "post_wait_Wait for dynamic content to load",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397080.922676,
+      "step": 5,
+      "event": "step_executed_wait",
+      "details": {
+        "selector": "",
+        "description": "Wait for dynamic content to load",
+        "success": true
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397081.9623759,
+      "step": 6,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 6,
+        "description": "Wait for the page to load (A popup or menu appeared) (Entered information)",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397094.315423,
+      "step": 6,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 6,
+        "description": "Wait for the page to load (A popup or menu appeared) (Entered information)",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762397104.755285,
+      "step": 6,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "final",
+        "has_modals": true,
+        "has_forms": false,
+        "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s"
+      },
+      "url": "https://www.notion.so/2a3d0d7287bd801eb707c75a64389f6e?v=2a3d0d7287bd80068ee0000c7e2e80f9&p=2a3d0d7287bd80fda0dbfab3c1ded7dd&pm=s",
+      "success": true
+    },
+    {
+      "timestamp": 1762397105.3750541,
+      "step": 6,
+      "event": "screenshot_skipped",
+      "details": {
+        "reason": "low_reward",
+        "step": 6,
+        "description": "Wait for the page to load (A popup or menu appeared) (Entered information)",
+        "action_type": "wait"
+      },
+      "url": "",
+      "success": true
+    }
+  ]
+}

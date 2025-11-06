@@ -1,0 +1,18 @@
+{
+  "url": "https://app.asana.com/1/1211810359682640/create-project",
+  "title": "New project - Asana",
+  "timestamp": 1762405061.369406,
+  "step": 6,
+  "modals": true,
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "cropped": true,
+  "clip_region": {
+    "x": 0,
+    "y": 0,
+    "width": 1920,
+    "height": 1080
+  }
+}

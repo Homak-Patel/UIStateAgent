@@ -11,5 +11,20 @@ httpx==0.25.0
 aiofiles==23.2.1
 websockets==12.0
 markdown==3.5.1
-selenium>=4.15.0  # Optional: For fallback when Playwright fails on JS-heavy sites
+
+# Layer 2 Fallback: Enhanced Selenium (for iframe, shadow DOM, JS-heavy sites)
+selenium>=4.15.0
+webdriver-manager>=4.0.0
+
+# HTML Parsing
 beautifulsoup4>=4.12.0
+
+# Layer 3 Fallback: OCR Automation (for visual UI interaction, canvas-rendered UIs)
+opencv-python>=4.8.0
+pytesseract>=0.3.10
+Pillow>=10.0.0
+pyautogui>=0.9.54
+# Note: Tesseract OCR binary must be installed separately:
+#   macOS: brew install tesseract
+#   Linux: sudo apt-get install tesseract-ocr
+#   Windows: https://github.com/UB-Mannheim/tesseract/wiki

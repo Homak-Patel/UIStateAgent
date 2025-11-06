@@ -1,0 +1,18 @@
+{
+  "url": "https://app.asana.com/1/1211810359682640/home",
+  "title": "Home - Asana",
+  "timestamp": 1762413952.5873432,
+  "step": 1,
+  "modals": false,
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "cropped": true,
+  "clip_region": {
+    "x": 0,
+    "y": 657,
+    "width": 632,
+    "height": 632
+  }
+}
