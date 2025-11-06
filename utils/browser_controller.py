@@ -17,6 +17,14 @@ except ImportError:
     SELENIUM_AVAILABLE = False
     SeleniumFallback = None
 
+# Try to import OCR automation fallback
+try:
+    from utils.ocr_automation import OCRAutomation
+    OCR_AVAILABLE = True
+except ImportError:
+    OCR_AVAILABLE = False
+    OCRAutomation = None
+
 logger = get_logger(name="browser_automation")
 
 
@@ -71,9 +79,14 @@ class BrowserController:
         self.playwright = None
         self.navigation_history: List[Dict[str, Any]] = []
         self.detected_modals: List[Dict[str, Any]] = []
+        
+        # 3-Layer Fallback System
         self.selenium_fallback: Optional[SeleniumFallback] = None
-        self.use_selenium_fallback = os.getenv("USE_SELENIUM_FALLBACK", "false").lower() == "true"
+        self.ocr_automation: Optional[OCRAutomation] = None
+        self.use_selenium_fallback = os.getenv("USE_SELENIUM_FALLBACK", "true").lower() == "true"  # Default enabled
+        self.use_ocr_fallback = os.getenv("USE_OCR_FALLBACK", "true").lower() == "true"  # Default enabled
         self.playwright_failures: Dict[str, int] = {}  # Track failures per selector
+        self.selenium_failures: Dict[str, int] = {}  # Track selenium failures
     
     async def start(self):
         logger.info("Starting enhanced browser automation")
@@ -350,7 +363,7 @@ class BrowserController:
                 break
     
     async def click(self, selector: str, timeout: Optional[int] = None, force: bool = True, retry: bool = True):
-        """Ultra-robust click that always works - tries every possible strategy with enhanced JS site support"""
+        """Click with multiple fallback strategies for JS-heavy sites"""
         if not self.page:
             raise RuntimeError("Browser not started")
         
@@ -724,32 +737,81 @@ class BrowserController:
         
         # Track failure before checking fallback
         self.playwright_failures[selector] = self.playwright_failures.get(selector, 0) + 1
+        failure_count = self.playwright_failures.get(selector, 0)
         
-        # Strategy 5: Try Selenium fallback if Playwright keeps failing
-        if self.use_selenium_fallback and SELENIUM_AVAILABLE:
-            failure_count = self.playwright_failures.get(selector, 0)
-            if failure_count >= 2:  # After 2 failures, try Selenium
-                logger.info(f"Playwright failed {failure_count} times for {selector}, trying Selenium fallback")
-                try:
-                    if not self.selenium_fallback:
-                        from utils.selenium_fallback import SeleniumFallback
-                        self.selenium_fallback = SeleniumFallback(headless=self.headless)
-                        current_url = await self.get_url()
-                        # Note: Selenium is synchronous, so we need to handle this carefully
-                        # For now, log that we'd use it but don't actually switch mid-session
-                        logger.info("Selenium fallback available but requires new session")
+        # ========== 3-LAYER FALLBACK SYSTEM ==========
+        
+        # LAYER 2: Selenium Fallback (after 2 Playwright failures)
+        if self.use_selenium_fallback and SELENIUM_AVAILABLE and failure_count >= 2:
+            logger.info(f"🔄 LAYER 2: Playwright failed {failure_count} times, trying Selenium fallback for {selector}")
+            
+            try:
+                if not self.selenium_fallback:
+                    self.selenium_fallback = SeleniumFallback(headless=self.headless)
+                    current_url = await self.get_url()
+                    self.selenium_fallback.start(current_url)
+                    logger.info("Selenium fallback initialized")
+                
+                # Try Selenium click
+                selenium_success = self.selenium_fallback.click(selector, timeout=10, use_action_chains=False)
+                
+                if selenium_success:
+                    logger.info(f"✅ LAYER 2 SUCCESS: Selenium click succeeded for {selector}")
+                    self.playwright_failures[selector] = 0  # Reset on success
+                    await asyncio.sleep(0.5)
+                    return
+                else:
+                    # Track Selenium failure
+                    self.selenium_failures[selector] = self.selenium_failures.get(selector, 0) + 1
+                    logger.warning(f"❌ LAYER 2 FAILED: Selenium click failed for {selector}")
                     
-                    # Reset failure count on successful fallback attempt
-                    self.playwright_failures[selector] = 0
-                except Exception as e:
-                    logger.debug(f"Selenium fallback not available: {e}")
+            except Exception as e:
+                logger.debug(f"Selenium fallback error: {e}")
+                self.selenium_failures[selector] = self.selenium_failures.get(selector, 0) + 1
         
-        # If all else fails, log but don't crash - continue workflow
-        logger.warning(f"⚠ Click could not be completed for: {selector} (continuing workflow)")
+        # LAYER 3: OCR Fallback (after both Playwright and Selenium fail)
+        selenium_failure_count = self.selenium_failures.get(selector, 0)
+        if self.use_ocr_fallback and OCR_AVAILABLE and failure_count >= 3 and selenium_failure_count >= 2:
+            logger.info(f"🔄 LAYER 3: Both Playwright and Selenium failed, trying OCR fallback for {selector}")
+            
+            try:
+                if not self.ocr_automation:
+                    self.ocr_automation = OCRAutomation()
+                    logger.info("OCR automation initialized")
+                
+                # Extract text from selector to search for
+                import re
+                text_match = re.search(r"['\"](.*?)['\"]", selector) or re.search(r":has-text\(([^)]+)\)", selector)
+                
+                if text_match:
+                    search_text = text_match.group(1)
+                    logger.info(f"Attempting OCR click on text: '{search_text}'")
+                    
+                    # Try OCR-based click
+                    ocr_success = self.ocr_automation.click_on_text(search_text)
+                    
+                    if ocr_success:
+                        logger.info(f"✅ LAYER 3 SUCCESS: OCR click succeeded for text '{search_text}'")
+                        # Reset all failure counters
+                        self.playwright_failures[selector] = 0
+                        self.selenium_failures[selector] = 0
+                        await asyncio.sleep(0.5)
+                        return
+                    else:
+                        logger.warning(f"❌ LAYER 3 FAILED: OCR click failed for '{search_text}'")
+                else:
+                    logger.debug("Could not extract text from selector for OCR fallback")
+                    
+            except Exception as e:
+                logger.debug(f"OCR fallback error: {e}")
+        
+        # All 3 layers failed - log but continue workflow
+        logger.warning(f"⚠️ ALL LAYERS FAILED: Click could not be completed for: {selector} (continuing workflow)")
+        logger.info(f"Failure summary - Playwright: {failure_count}, Selenium: {selenium_failure_count}")
         await asyncio.sleep(0.5)
     
     async def type(self, selector: str, text: str, delay: int = 20, clear_first: bool = True):
-        """Robust typing with multiple fallback strategies - enhanced for JS-heavy sites"""
+        """Type text with fallback strategies for JS-heavy sites"""
         if not self.page:
             raise RuntimeError("Browser not started")
         
@@ -991,16 +1053,58 @@ class BrowserController:
         self.playwright_failures[selector] = self.playwright_failures.get(selector, 0) + 1
         failure_count = self.playwright_failures[selector]
         
-        # Strategy 5: Try Selenium fallback if Playwright keeps failing
+        # ========== 3-LAYER FALLBACK SYSTEM FOR TYPE ==========
+        
+        # LAYER 2: Selenium Fallback
         if self.use_selenium_fallback and SELENIUM_AVAILABLE and failure_count >= 2:
-            logger.info(f"Playwright failed {failure_count} times for typing, trying Selenium fallback")
+            logger.info(f"🔄 LAYER 2: Playwright failed {failure_count} times for typing, trying Selenium fallback")
+            
             try:
-                # Initialize Selenium if needed (but note: Selenium requires new session)
-                # For now, we'll improve Playwright strategies instead
-                # Selenium fallback would require session management which is complex
-                logger.warning("Selenium fallback would require new session - improving Playwright strategies instead")
+                if not self.selenium_fallback:
+                    self.selenium_fallback = SeleniumFallback(headless=self.headless)
+                    current_url = await self.get_url()
+                    self.selenium_fallback.start(current_url)
+                
+                selenium_success = self.selenium_fallback.type(selector, text, clear_first)
+                
+                if selenium_success:
+                    logger.info(f"✅ LAYER 2 SUCCESS: Selenium type succeeded for {selector}")
+                    self.playwright_failures[selector] = 0
+                    await asyncio.sleep(0.3)
+                    return
+                else:
+                    self.selenium_failures[selector] = self.selenium_failures.get(selector, 0) + 1
+                    
             except Exception as e:
-                logger.debug(f"Selenium fallback not available: {e}")
+                logger.debug(f"Selenium type fallback error: {e}")
+                self.selenium_failures[selector] = self.selenium_failures.get(selector, 0) + 1
+        
+        # LAYER 3: OCR Fallback
+        selenium_failure_count = self.selenium_failures.get(selector, 0)
+        if self.use_ocr_fallback and OCR_AVAILABLE and failure_count >= 3 and selenium_failure_count >= 2:
+            logger.info(f"🔄 LAYER 3: Both layers failed for typing, trying OCR fallback")
+            
+            try:
+                if not self.ocr_automation:
+                    self.ocr_automation = OCRAutomation()
+                
+                # Extract label text from selector
+                import re
+                label_match = re.search(r"['\"](.*?)['\"]", selector)
+                
+                if label_match:
+                    label_text = label_match.group(1)
+                    ocr_success = self.ocr_automation.find_input_field_and_type(label_text, text)
+                    
+                    if ocr_success:
+                        logger.info(f"✅ LAYER 3 SUCCESS: OCR type succeeded")
+                        self.playwright_failures[selector] = 0
+                        self.selenium_failures[selector] = 0
+                        await asyncio.sleep(0.3)
+                        return
+                        
+            except Exception as e:
+                logger.debug(f"OCR type fallback error: {e}")
         
         # Strategy 6: Last resort - try finding ANY visible input in visible modals
         try:
@@ -1311,7 +1415,7 @@ class BrowserController:
                 logger.warning(f"Could not find form field: {field_name}")
     
     async def capture_full_workflow_state(self) -> Dict[str, Any]:
-        """Capture comprehensive UI state information including both URL and non-URL states"""
+        """Capture UI state info including URL and non-URL states"""
         try:
             current_url = await self.get_url()
             page_title = await self.page.title()
@@ -1489,20 +1593,9 @@ class BrowserController:
                                 'height': min(viewport['height'], box['height'] + padding * 2)
                             }
                             
-                            # Highlight the element with a more visible red border
-                            # Use element handle instead of re-querying
-                            await element.evaluate("""
-                                elem => {
-                                    elem.style.outline = '5px solid #FF0000';
-                                    elem.style.outlineOffset = '3px';
-                                    elem.style.boxShadow = '0 0 30px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6)';
-                                    elem.style.zIndex = '99999';
-                                    if (getComputedStyle(elem).position === 'static') {
-                                        elem.style.position = 'relative';
-                                    }
-                                }
-                            """)
-                            logger.info(f"✅ Highlighted and cropped to element with {padding}px padding")
+                            # Element found and scrolled into view
+                            # No visual highlighting to avoid noise in screenshots
+                            logger.info(f"✅ Cropped to element with {padding}px padding (no border highlight)")
                         break
                     else:
                         logger.debug(f"⚠️ Element not found with selector: {selector}")
@@ -1527,19 +1620,7 @@ class BrowserController:
         
         await self.page.screenshot(**screenshot_options)
         
-        # Remove highlights
-        if highlight_elements:
-            for selector in highlight_elements:
-                try:
-                    await self.page.evaluate(f"""
-                        const elem = document.querySelector('{selector}');
-                        if (elem) {{
-                            elem.style.outline = '';
-                            elem.style.boxShadow = '';
-                        }}
-                    """)
-                except:
-                    pass
+        # No highlights to remove - clean screenshots without visual noise
         
         # Capture metadata
         metadata = {

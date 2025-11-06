@@ -1,0 +1,93 @@
+{
+  "task_query": "can you show me how to create a new page?",
+  "app_name": "notion",
+  "app_url": "https://www.notion.so/c4b4e86819574f18b2d1287bf41cf165",
+  "task_name": "can you show me how to create a new page",
+  "completed": true,
+  "error": null,
+  "total_steps": 0,
+  "steps_completed": 0,
+  "screenshots": [
+    "./data/screenshots/notion/can you show me how to create a new page/step_000.png",
+    "./data/screenshots/notion/can you show me how to create a new page/step_000.png"
+  ],
+  "step_descriptions": [
+    "Start: Open the application",
+    "Start: Open the application"
+  ],
+  "execution_time": 7.5751941204071045,
+  "detected_modals": 0,
+  "form_interactions": 0,
+  "ui_states_captured": 3,
+  "execution_log": [
+    {
+      "timestamp": 1762401525.555648,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "initial",
+        "has_modals": false,
+        "has_forms": false,
+        "url": "https://www.notion.so/appleauthcallback?state=eyJjYWxsYmFja1R5cGUiOiJyZWRpcmVjdCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmFwcGxlX2F1dGhfZmxvdzpWZmJXX1kzcXlqNzlRQy1iVUFLQjB2eFhURThlNXF3dmJmUHpkVFVBSUhrV3NXbTNWUUtFT004REh2VDRJU3ZWMU5DWklmXzM3QWNaTEZQSjFROENlRjRKd3hMNGk3eTl6a0pqZENlZy1BemVxLS1rbDdLc2NoNDhiSG5yMWYtbnRZWlYiLCJlbmNyeXB0ZWROb25jZSI6InYwMjphcHBsZV9hdXRoX2Zsb3c6b2dGNHhBdW5peUxjbTY3VUR2TFQxdy1UVEU2U0I0WUsySVIwWHE5c1VWOWRqX3BPbjVGZUZLVDZiNWNtaEN1dnhsMnp3cWlGWkRCNVNCZjNDTEZlMGNRakN2VW0tNU1JNGlHZ0RSRzdKa3JWdDcyS1JyODJoUU5KdW5rUEVHOWhOa2ZoUTdMOE9IeFhDM0xfd01ORSJ9&code=c5f6d43ddfb594cf0a1238975e5d8cee4.0.rrwyz.uE7PTWQd2CQFB8CyAPJW6Q"
+      },
+      "url": "https://www.notion.so/appleauthcallback?state=eyJjYWxsYmFja1R5cGUiOiJyZWRpcmVjdCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmFwcGxlX2F1dGhfZmxvdzpWZmJXX1kzcXlqNzlRQy1iVUFLQjB2eFhURThlNXF3dmJmUHpkVFVBSUhrV3NXbTNWUUtFT004REh2VDRJU3ZWMU5DWklmXzM3QWNaTEZQSjFROENlRjRKd3hMNGk3eTl6a0pqZENlZy1BemVxLS1rbDdLc2NoNDhiSG5yMWYtbnRZWlYiLCJlbmNyeXB0ZWROb25jZSI6InYwMjphcHBsZV9hdXRoX2Zsb3c6b2dGNHhBdW5peUxjbTY3VUR2TFQxdy1UVEU2U0I0WUsySVIwWHE5c1VWOWRqX3BPbjVGZUZLVDZiNWNtaEN1dnhsMnp3cWlGWkRCNVNCZjNDTEZlMGNRakN2VW0tNU1JNGlHZ0RSRzdKa3JWdDcyS1JyODJoUU5KdW5rUEVHOWhOa2ZoUTdMOE9IeFhDM0xfd01ORSJ9&code=c5f6d43ddfb594cf0a1238975e5d8cee4.0.rrwyz.uE7PTWQd2CQFB8CyAPJW6Q",
+      "success": true
+    },
+    {
+      "timestamp": 1762401526.2278779,
+      "step": 0,
+      "event": "screenshot_captured",
+      "details": {
+        "path": "./data/screenshots/notion/can you show me how to create a new page/step_000.png",
+        "description": "Start: Open the application",
+        "action_type": null,
+        "action_success": true,
+        "step": 0,
+        "step_index": 0
+      },
+      "url": "",
+      "success": true
+    },
+    {
+      "timestamp": 1762401532.1620212,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "task_complete_initial",
+        "has_modals": false,
+        "has_forms": true,
+        "url": "https://www.notion.so/c4b4e86819574f18b2d1287bf41cf165"
+      },
+      "url": "https://www.notion.so/c4b4e86819574f18b2d1287bf41cf165",
+      "success": true
+    },
+    {
+      "timestamp": 1762401532.376162,
+      "step": 0,
+      "event": "ui_state_capture",
+      "details": {
+        "context": "final",
+        "has_modals": false,
+        "has_forms": true,
+        "url": "https://www.notion.so/c4b4e86819574f18b2d1287bf41cf165"
+      },
+      "url": "https://www.notion.so/c4b4e86819574f18b2d1287bf41cf165",
+      "success": true
+    },
+    {
+      "timestamp": 1762401533.1308422,
+      "step": 0,
+      "event": "screenshot_captured",
+      "details": {
+        "path": "./data/screenshots/notion/can you show me how to create a new page/step_000.png",
+        "description": "Start: Open the application",
+        "action_type": null,
+        "action_success": true,
+        "step": 0,
+        "step_index": 1
+      },
+      "url": "",
+      "success": true
+    }
+  ]
+}

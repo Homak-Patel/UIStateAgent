@@ -16,9 +16,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from dotenv import load_dotenv
 from utils.logger import get_logger
 from utils.browser_controller import BrowserController
-from graph.workflow import AgentWorkflow
+from orchestration.workflow import AgentWorkflow
 from utils.helpers import sanitize_filename
-from agents.ui_navigator_agent import UINavigatorAgent
 from utils.dataset_exporter import DatasetExporter
 
 # Load .env file - check both mounted path and current directory
@@ -99,11 +98,11 @@ async def root():
         "version": "2.0.0",
         "status": "running",
         "features": [
-            "Enhanced browser automation",
+            "Browser automation",
             "Modal and popup detection",
             "Dynamic content handling",
             "Form interaction tracking",
-            "Comprehensive UI state capture"
+            "UI state capture"
         ]
     }
 
@@ -490,8 +489,8 @@ async def execute_task(request: TaskRequest):
         workflow = AgentWorkflow(
             browser=browser,
             llm_model=os.getenv("CREWAI_LLM_MODEL", "claude-sonnet-4-5-20250929"),
-            max_steps=int(os.getenv("LANGGRAPH_MAX_STEPS", "50")),
-            retry_attempts=int(os.getenv("LANGGRAPH_RETRY_ATTEMPTS", "3")),
+            max_steps=int(os.getenv("MAX_WORKFLOW_STEPS", "50")),
+            retry_attempts=int(os.getenv("WORKFLOW_RETRY_ATTEMPTS", "3")),
             capture_metadata=request.capture_metadata,
             progress_callback=send_progress
         )
@@ -684,7 +683,7 @@ async def perform_login(login_request: LoginRequest):
                 waited = 0
                 
                 def is_app_url(url: str) -> bool:
-                    """Robust URL detection for any application"""
+                    """Detect if URL is the app URL (not auth page)"""
                     lowered = url.lower()
                     app_domain = login_request.app_url.split("//")[-1].split("/")[0].split(":")[0]
                     

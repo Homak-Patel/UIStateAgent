@@ -79,10 +79,10 @@ fi
 export PLAYWRIGHT_HEADLESS=false
 export CREWAI_LLM_MODEL=${CREWAI_LLM_MODEL:-claude-sonnet-4-5-20250929}
 
-# Start Docker services (frontend and MCP only, backend runs locally)
-echo "🐳 Starting Docker services (frontend & MCP)..."
+# Start Docker services (frontend only, backend runs locally)
+echo "🐳 Starting Docker services (frontend)..."
 cd docker
-if ! docker compose up -d frontend mcp 2>&1; then
+if ! docker compose up -d frontend 2>&1; then
     echo "   ❌ Failed to start Docker services"
     echo "   Check logs with: cd docker && docker compose logs"
     cd ..
@@ -99,7 +99,7 @@ CONTAINER_STATUS=$(docker compose ps --format json 2>/dev/null || docker compose
 if echo "$CONTAINER_STATUS" | grep -q "Up"; then
     echo "   ✅ Docker services started successfully"
     echo "   Container status:"
-    docker compose ps | grep -E "(NAME|frontend|mcp)" | sed 's/^/      /'
+    docker compose ps | grep -E "(NAME|frontend)" | sed 's/^/      /'
 else
     echo "   ⚠️  Warning: Some containers may not be running"
     echo "   Container status:"

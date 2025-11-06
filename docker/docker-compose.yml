@@ -17,25 +17,6 @@ services:
       - agent-b-network
     restart: unless-stopped
 
-  mcp:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile.mcp
-    ports:
-      - "8001:8001"
-    volumes:
-      - ../mcp:/app/mcp
-      - ../data:/app/data
-      - ../.env:/app/.env:ro
-    env_file:
-      - ../.env
-    environment:
-      - ENV_FILE=/app/.env
-      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
-    networks:
-      - agent-b-network
-    restart: unless-stopped
-
 networks:
   agent-b-network:
     driver: bridge
