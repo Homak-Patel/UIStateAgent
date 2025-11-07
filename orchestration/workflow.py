@@ -988,7 +988,8 @@ class AgentWorkflow:
                 "modals": len(state.detected_modals),
                 "forms": len(state.form_interactions)
             }
-            self.context_sync.sync_context(workflow_id, state.current_step, context_data)
+            context_key = f"{workflow_id}:workflow:step:{state.current_step}"
+            self.context_sync.save_context(context_key, context_data)
         except Exception as e:
             logger.log_error(e, context={"step": "sync_context"})
     
