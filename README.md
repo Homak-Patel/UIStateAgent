@@ -187,6 +187,39 @@ Captured steps:
 ![Step 5](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20project%20in%20asana/step_005.png)
 *Project created*
 
+### Creating a Task in Asana
+
+Task: "Can you show me how to create a task in asana?"
+
+Captured steps:
+1. Initial dashboard
+2. Click "Create" → dropdown appears
+3. Click "Task" → task creation modal opens
+4. Enter task name and description
+5. Click "Create task" → task created
+6. Modal closes, task appears in list
+
+![Step 0](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20task%20in%20asana/step_000.png)
+*Initial dashboard*
+
+![Step 1](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20task%20in%20asana/step_001.png)
+*After clicking Create - dropdown menu*
+
+![Step 3](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20task%20in%20asana/step_003.png)
+*Task creation modal opened (no URL state)*
+
+![Step 5](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20task%20in%20asana/step_005.png)
+*Task form with name and description filled*
+
+![Step 6](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20task%20in%20asana/step_006.png)
+*After clicking Create task button*
+
+![Step 7](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20task%20in%20asana/step_007.png)
+*Task created, modal closing*
+
+![Step 8](data/screenshots/asana/can%20you%20show%20me%20how%20to%20create%20a%20task%20in%20asana/step_008.png)
+*Final state - task appears in list*
+
 ### Creating a Project in Notion
 
 Task: "How do I create a new project?"
@@ -213,11 +246,11 @@ Task: "How do I clone this repository?"
 ## Dataset
 
 Captured workflows:
-- **Asana**: 6 tasks (create project, create task, navigate inbox, etc.)
+- **Asana**: 7 tasks (create project, create task, navigate inbox, etc.)
 - **Notion**: 3 tasks (create project, create page, add task)
 - **GitHub**: 1 task (clone repo)
 
-Total: 10+ workflows, 40+ screenshots
+Total: 11+ workflows, 47+ screenshots
 
 ## Technical Details
 
