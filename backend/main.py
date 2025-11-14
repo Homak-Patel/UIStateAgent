@@ -32,7 +32,7 @@ except (PermissionError, OSError):
     load_dotenv(override=True)
 logger = get_logger(name="api")
 
-app = FastAPI(title="SoftLight UI State Agent API", version="2.0.0")
+app = FastAPI(title="UI State Agent API", version="2.0.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -94,7 +94,7 @@ class LoginResponse(BaseModel):
 @app.get("/")
 async def root():
     return {
-        "message": "SoftLight UI State Agent API",
+        "message": "UI State Agent API",
         "version": "2.0.0",
         "status": "running",
         "features": [

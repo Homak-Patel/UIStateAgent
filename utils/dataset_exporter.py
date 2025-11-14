@@ -256,27 +256,27 @@ This dataset is designed for:
         with open(export_path / "README.md", "w") as f:
             f.write(readme_content)
     
-    def create_submission_package(
+    def create_dataset_package(
         self,
         tasks: List[Dict[str, Any]],
         author: str = "Agent B",
         description: str = ""
     ) -> str:
-        """Create a submission package for the Softlight assignment"""
+        """Create a dataset export package"""
         
         # Export the dataset
-        export_path = self.export_batch_dataset(tasks, "softlight_submission")
+        export_path = self.export_batch_dataset(tasks, "ui_state_dataset")
         export_path = Path(export_path)
         
-        # Create submission README
-        submission_readme = f"""# SoftLight UI State Capture Submission
+        # Create dataset README
+        dataset_readme = f"""# UI State Capture Dataset
 
 **Author**: {author}
 **Date**: {datetime.now().strftime('%Y-%m-%d')}
 
 ## Overview
 
-This submission contains captured UI states for {len(tasks)} tasks across multiple web applications, demonstrating the capability to capture both URL-based and non-URL UI states (modals, dropdowns, form states).
+This dataset contains captured UI states for {len(tasks)} tasks across multiple web applications, demonstrating the capability to capture both URL-based and non-URL UI states (modals, dropdowns, form states).
 
 ## Technical Implementation
 
@@ -300,10 +300,10 @@ This submission contains captured UI states for {len(tasks)} tasks across multip
 ## Dataset Structure
 
 ```
-softlight_submission/
+ui_state_dataset/
 ├── dataset_metadata.json      # Overall metadata
 ├── README.md                  # This file
-├── SUBMISSION_NOTES.md        # Additional notes
+├── DATASET_NOTES.md           # Additional notes
 └── [task_folders]/           # Individual task captures
     ├── metadata.json         # Task metadata
     └── screenshots/          # UI state screenshots
@@ -326,13 +326,13 @@ softlight_submission/
 For any questions or clarifications, please reach out.
 
 ---
-*This dataset was captured using the SoftLight UI State Agent system*
+*This dataset was captured using the UI State Agent system*
 """
         
-        with open(export_path / "SUBMISSION_README.md", "w") as f:
-            f.write(submission_readme)
+        with open(export_path / "DATASET_README.md", "w") as f:
+            f.write(dataset_readme)
         
-        # Create a zip file for easy submission
+        # Create a zip file for easy distribution
         shutil.make_archive(str(export_path), 'zip', export_path)
         
         return f"{export_path}.zip"

@@ -126,7 +126,7 @@ Each workflow includes:
 ```bash
 # Clone the repo
 git clone <repo-url>
-cd SoftLight_UIStateAgent
+cd UIStateAgent
 
 # Install dependencies
 cd backend
@@ -367,12 +367,3 @@ Tested on:
 - GitHub (standard web app)
 
 All workflows successfully capture initial state, intermediate states (modals/forms), and final state.
-
-## Submission
-
-This is a submission for the SoftLight Engineering Take-Home Assignment.
-
-**Deliverables:**
-1. Code - complete UI state capture system
-2. Dataset - 5+ workflows across 3 apps
-3. Documentation - this README

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SoftLight UI State Agent',
+  title: 'UI State Agent',
   description: 'AI-powered UI state capture agent for automated workflow documentation',
 }
 

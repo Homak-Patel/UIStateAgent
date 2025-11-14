@@ -39,7 +39,7 @@ export default function Home() {
     {
       id: '1',
       type: 'system',
-      content: 'Welcome to SoftLight UI State Agent. I can help you capture UI states from any web application. Just tell me what you want to do!',
+      content: 'Welcome to UI State Agent. I can help you capture UI states from any web application. Just tell me what you want to do!',
       timestamp: new Date()
     }
   ])
@@ -307,8 +307,8 @@ export default function Home() {
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-[#0a0a0a] animate-pulse"></div>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">SoftLight</h1>
-              <p className="text-xs text-gray-400">UI State Agent</p>
+              <h1 className="text-xl font-bold text-white">UI State Agent</h1>
+              <p className="text-xs text-gray-400">Automated Workflow Capture</p>
             </div>
           </div>
           <button

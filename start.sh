@@ -1,12 +1,12 @@
 #!/bin/bash
-# SoftLight UI State Agent - Quick Start (Backend Local, Frontend/MCP Docker)
+# UI State Agent - Quick Start (Backend Local, Frontend/MCP Docker)
 
 set -e
 cd "$(dirname "$0")"
 
 clear
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🚀 SoftLight UI State Agent"
+echo "🚀 UI State Agent"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -48,13 +48,13 @@ eval "$(conda shell.bash hook)" 2>/dev/null || {
 echo "   ✓ Conda initialized"
 
 # Create env only if it doesn't exist
-if ! conda env list | grep -q "^softlight "; then
-    echo "   Creating 'softlight' environment (one-time setup)..."
-    conda create -n softlight python=3.11 -y
+if ! conda env list | grep -q "^ui-state-agent "; then
+    echo "   Creating 'ui-state-agent' environment (one-time setup)..."
+    conda create -n ui-state-agent python=3.11 -y
 fi
 
-echo "   Activating 'softlight' environment..."
-conda activate softlight
+echo "   Activating 'ui-state-agent' environment..."
+conda activate ui-state-agent
 echo "   ✓ Conda environment activated"
 
 # Install dependencies
